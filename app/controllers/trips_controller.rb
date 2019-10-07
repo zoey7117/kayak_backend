@@ -1,20 +1,38 @@
 class TripsController < ApplicationController
 
 
-  # def index
-  #   if logged_in?
-  #     @trips = current_user.trips
-  #     render json: @trips
-  #   else
-  #   @trips = Trip.all
-  #   render json: @trips
-  #   end
-  # end
-
   def index
+    if logged_in?
+      @trips = current_user.trips
+      render json: @trips
+    else
     @trips = Trip.all
     render json: @trips
+    end
   end
+
+  # def index
+  #   @trips = Trip.all
+  #   render json: @trips
+  # end
+  #
+  #
+  # def index
+  #     if logged_in?
+  #       @pets = current_user.pets
+  #       render json: @pets
+  #     else
+  #       @pets = Pet.all
+  #       render json: @pets
+  #         # render json: {
+  #         #   error: "You must be logged in to see pets"
+  #         # }
+  #     end
+
+
+
+
+
 
   def new
     @trip = Trip.new
@@ -37,7 +55,9 @@ class TripsController < ApplicationController
   def create
     @trip = Trip.new(trip_params)
     @trip.save
-    @trip.get_image
+    # @trip.get_image
+    Trip.get_image
+
     # Trip.get_image
     render json: @trip
   end
