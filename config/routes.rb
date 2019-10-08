@@ -5,7 +5,6 @@ resources :trips
 resources :comments
 resources :dictionaries
 
-root 'welcome#home'
 
 
   post '/login', to: 'sessions#create'
