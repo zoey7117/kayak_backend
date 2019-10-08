@@ -5,6 +5,8 @@ resources :trips
 resources :comments
 resources :dictionaries
 
+root 'welcome#home'
+
 
   post '/login', to: 'sessions#create'
   get '/get_current_user', to: 'sessions#get_current_user'
