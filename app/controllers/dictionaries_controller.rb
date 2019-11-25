@@ -9,6 +9,7 @@ class DictionariesController < ApplicationController
     @dictionary = Dictionary.new
     render json: @dictionary
   end
+  
 
   def show
     @dictionary = Dictionary.find(params[:id])
