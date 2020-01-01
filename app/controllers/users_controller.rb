@@ -16,31 +16,20 @@ class UsersController < ApplicationController
 
 
 
-  # def create
-  #   @user = User.new(user_params)
-  #   if @user.save
-  #     session[:user_id] = @user.id
-  #     render json: @user, status: :created
-  #   else
-  #     resp = {
-  #       error: @user.errors.full_messages.to_sentence
-  #     }
-  #     render json: resp, status: :unprocessable_entity
-  #   end
-  # end
-
   def create
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
       render json: @user, status: :created
     else
-    rescue PG::UniqueViolation
-      format.json { render json: ["We've already got one"], status: :unprocessable_entity }
-
-
+      resp = {
+        error: @user.errors.full_messages.to_sentence
+      }
+      render json: resp, status: :unprocessable_entity
     end
   end
+  #
+
 
 
   # PATCH/PUT /users/1
