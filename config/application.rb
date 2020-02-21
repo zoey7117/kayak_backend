@@ -12,7 +12,7 @@ module KayakBackend
 
     config.middleware.insert_before 0, Rack::Cors do
      allow do
-       origins '*'
+       origins 'https://kayaking-frontend.herokuapp.com', 'http://localhost:3001', 'http://localhost:3002', 'http://kayaking-frontend.herokuapp.com'
        resource '*', headers: :any, methods: [:get, :post, :options]
      end
    end
@@ -20,7 +20,7 @@ module KayakBackend
 
     config.api_only = true
     config.middleware.use ActionDispatch::Cookies
-    config.middleware.use ActionDispatch::Session::CookieStore, key: '_cookie_name'
+    config.middleware.use ActionDispatch::Session::CookieStore
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
