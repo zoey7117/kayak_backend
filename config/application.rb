@@ -12,7 +12,7 @@ module KayakBackend
 
     config.middleware.insert_before 0, Rack::Cors do
      allow do
-       origins '*'
+       origins 'https://kayaking-frontend.herokuapp.com', 'http://localhost:3001', 'http://localhost:3002'
        resource '*', headers: :any, methods: [:get, :post, :options]
      end
    end
