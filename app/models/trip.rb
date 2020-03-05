@@ -3,6 +3,14 @@ class Trip < ApplicationRecord
   has_many :comments, :dependent => :destroy
   has_many :users, through: :comments
 
+  validates :water_type, presence: true
+  validates :start_date, presence: true
+  validates :end_date, presence: true
+  validates :name, presence: true
+
+
+
+
 
 
 # def self.get_image
