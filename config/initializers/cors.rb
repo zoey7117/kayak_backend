@@ -7,12 +7,11 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'https://kayaking-frontend.herokuapp.com', 'http://localhost:3001', 'http://localhost:3002', 'http://kayaking-frontend.herokuapp.com'
+    origins 'https://kayaking-client.herokuapp.com/', 'http://localhost:3001', 'http://localhost:3002', 'http://kayaking-client.herokuapp.com/'
 
 
     resource '*',
       headers: :any,
-      methods: [:get, :post, :put, :patch, :delete, :options, :head],
-      credentials: true
+      methods: [:get, :post, :put, :patch, :delete, :options, :head]
   end
 end
